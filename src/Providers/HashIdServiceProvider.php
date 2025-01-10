@@ -15,7 +15,7 @@ class HashIdServiceProvider extends ServiceProvider implements DeferrableProvide
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(self::CONFIG_FILE, 'share');
+        $this->mergeConfigFrom(self::CONFIG_FILE, 'hashids');
 
         $this->app->bind('command.hashid:key', GenerateHashIdKey::class);
 
