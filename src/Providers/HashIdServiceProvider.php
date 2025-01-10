@@ -4,7 +4,7 @@ namespace PioneerDynamics\LaravelHashid\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Support\DeferrableProvider;
-use PioneerDynamics\LaraveHashid\Console\GenerateHashIdKey;
+use PioneerDynamics\LaravelHashid\Console\GenerateHashIdKey;
 
 class HashIdServiceProvider extends ServiceProvider implements DeferrableProvider
 {
