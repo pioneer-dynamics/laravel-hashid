@@ -1,6 +1,6 @@
 <?php
 
-namespace PioneerDynamics\LaraveHashid\Providers;
+namespace PioneerDynamics\LaravelHashid\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Support\DeferrableProvider;

@@ -1,5 +1,5 @@
 <?php
-namespace PioneerDynamics\LaraveHashid\Traits;
+namespace PioneerDynamics\LaravelHashid\Traits;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Casts\Attribute;
