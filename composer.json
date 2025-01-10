@@ -8,7 +8,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "PioneerDynamics\\LaraveHashid\\": "src/"
+            "PioneerDynamics\\LaravelHashid\\": "src/"
         }
     },
     "authors": [
@@ -20,7 +20,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "PioneerDynamics\\LaraveHashid\\Providers\\HashIdServiceProvider"
+                "PioneerDynamics\\LaravelHashid\\Providers\\HashIdServiceProvider"
             ]
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace PioneerDynamics\LaraveHashid\Console;
+namespace PioneerDynamics\LaravelHashid\Console;
 
 use Illuminate\Support\Str;
 use InvalidArgumentException;
