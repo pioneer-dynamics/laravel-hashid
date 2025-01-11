@@ -58,7 +58,7 @@ class GenerateHashIdKey extends Command
 
     private function addConnection($connectionName, $salt, $length, $alphabet) 
     {
-        $filePath = config_path('hashid.php');
+        $filePath = config_path('hashids.php');
 
         $config = file_get_contents($filePath);
         
