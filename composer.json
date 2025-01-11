@@ -20,7 +20,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "PioneerDynamics\\LaravelHashid\\Providers\\HashIdServiceProvider"
+                "PioneerDynamics\\LaravelHashid\\Providers\\PioneerDynamicsHashIdServiceProvider"
             ]
         }
     }
