@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use PioneerDynamics\LaravelHashid\Console\GenerateHashIdKey;
 
-class PioneerDynamicsHashIdServiceProvider extends ServiceProvider implements DeferrableProvider
+class PioneerDynamicsHashIdServiceProvider extends ServiceProvider
 {
     /**
      * Register services.

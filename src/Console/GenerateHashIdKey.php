@@ -14,14 +14,14 @@ class GenerateHashIdKey extends Command
      *
      * @var string
      */
-    protected $signature = 'make:hashid {model}';
+    protected $signature = 'hashid:key {model}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Generate hasid key for a model';
+    protected $description = 'Generate HashID key for a model';
 
     public function handle()
     {
