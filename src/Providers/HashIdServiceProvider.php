@@ -13,10 +13,8 @@ class HashIdServiceProvider extends ServiceProvider implements DeferrableProvide
      */
     public function register(): void
     {
-        $this->app->bind('command.hashid:key', GenerateHashIdKey::class);
-
         $this->commands([
-            'command.hashid:key'
+            GenerateHashIdKey::class
         ]);
     }
 
