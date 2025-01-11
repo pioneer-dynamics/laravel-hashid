@@ -14,7 +14,7 @@ class GenerateHashIdKey extends Command
      *
      * @var string
      */
-    protected $signature = 'hashid:key {model}';
+    protected $signature = 'make:hashid {model}';
 
     /**
      * The console command description.
