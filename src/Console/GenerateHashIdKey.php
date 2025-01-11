@@ -27,7 +27,7 @@ class GenerateHashIdKey extends Command
     {
         $this->addConnection(
             $this->argument('model'),
-            '',
+            Str::random(32),
             10,
             'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
         );
@@ -59,21 +59,22 @@ class GenerateHashIdKey extends Command
     private function addConnection($connectionName, $salt, $length, $alphabet) 
     {
         $filePath = config_path('hashids.php');
-
         $config = file_get_contents($filePath);
-        
+
         $newConnection = "
-            '".ucfirst($connectionName)."' => [
-                'salt' => env('HASH_ID_SALT_".strtoupper($connectionName)."','$salt'),
-                'length' => $length,
-                'alphabet' => '$alphabet'
-            ],";
-    
-        $pattern = "/'".ucfirst($connectionName)."' => \[.*?\],/s";
         
+        '".ucfirst($connectionName)."' => [
+            'salt' => env('HASH_ID_SALT_".strtoupper($connectionName)."','$salt'),
+            'length' => $length,
+            'alphabet' => '$alphabet'
+        ],";
+
+        // Check if the connection already exists
+        $pattern = "/'".ucfirst($connectionName)."' => \[.*?\],/s";
         if (!preg_match($pattern, $config)) {
-            $pattern = '/(\s*\'connections\'\s*=>\s*\[\s*)(.*?)(\s*\],)/s';
-            $replacement = '$1$2' . $newConnection . '$3';
+            // Find the last connection entry and insert the new connection after it
+            $pattern = '/(\s*\'connections\'\s*=>\s*\[\s*)(.*?)(\s*\],)(\s*\],)/s';
+            $replacement = '$1$2$3' . $newConnection . '$4';
             $newConfig = preg_replace($pattern, $replacement, $config);
             file_put_contents($filePath, $newConfig);
         }
