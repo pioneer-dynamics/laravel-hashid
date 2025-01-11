@@ -13,9 +13,7 @@ class PioneerDynamicsHashIdServiceProvider extends ServiceProvider implements De
      */
     public function register(): void
     {
-        $this->commands([
-            GenerateHashIdKey::class
-        ]);
+        // 
     }
 
     /**
@@ -23,6 +21,8 @@ class PioneerDynamicsHashIdServiceProvider extends ServiceProvider implements De
      */
     public function boot(): void
     {
-        // 
+        $this->commands([
+            GenerateHashIdKey::class
+        ]);
     }
 }
