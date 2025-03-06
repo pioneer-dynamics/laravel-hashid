@@ -3,7 +3,7 @@
     "description": "HashID support for laravel",
     "type": "library",
     "require": {
-        "vinkla/hashids": "^12.0"
+        "vinkla/hashids": "^13.0"
     },
     "license": "MIT",
     "autoload": {
