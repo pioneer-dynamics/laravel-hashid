@@ -47,12 +47,15 @@ trait HasHashId
     {
         $connection_name = self::getHashIdConnection();
 
+        logger(__CLASS__.'::'.__FUNCTION__.':'.__LINE__.' message ', [
+            'connection_name' => $connection_name,
+            'config' => config('hashids.connections')
+        ] );
+
         $id = LaravelHashids::connection($connection_name)->decode($hash_id)[0];
 
         logger(__CLASS__.'::'.__FUNCTION__.':'.__LINE__.' message ', [
-            'connection_name' => $connection_name,
             'id' => $id,
-            'config' => config('hashids.connections')
         ] );
 
         return self::withoutGlobalScopes()->findOrFail($id);
