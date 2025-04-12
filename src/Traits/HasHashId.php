@@ -43,20 +43,17 @@ trait HasHashId
         );
     }
 
-    public static function findByHashID($hash_id)
+    public static function getIdFromHashId($hash_id)
     {
         $connection_name = self::getHashIdConnection();
-
-        logger(__CLASS__.'::'.__FUNCTION__.':'.__LINE__.' message ', [
-            'connection_name' => $connection_name,
-            'config' => config('hashids.connections')
-        ] );
-
         $id = LaravelHashids::connection($connection_name)->decode($hash_id)[0];
 
-        logger(__CLASS__.'::'.__FUNCTION__.':'.__LINE__.' message ', [
-            'id' => $id,
-        ] );
+        return $id;
+    }
+
+    public static function findByHashID($hash_id)
+    {
+        $id = self::getIdFromHashId($hash_id);
 
         return self::withoutGlobalScopes()->findOrFail($id);
     }
