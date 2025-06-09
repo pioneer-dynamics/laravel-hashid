@@ -45,13 +45,30 @@ trait HasHashId
 
     public static function getIdFromHashId($hash_id)
     {
-        $connection_name = self::getHashIdConnection();
-        $id = LaravelHashids::connection($connection_name)->decode($hash_id)[0];
+        try {
+            $connection_name = self::getHashIdConnection();
+            $id = LaravelHashids::connection($connection_name)->decode($hash_id)[0];
 
-        return $id;
+            return $id;
+        }
+        catch(\Throwable $e) {
+            return null;
+        }
     }
 
     public static function findByHashID($hash_id)
+    {
+        try {
+            $id = self::getIdFromHashId($hash_id);
+
+            return self::withoutGlobalScopes()->find($id);
+        }
+        catch(\Throwable $e) {
+            return null;
+        }
+    }
+    
+    public static function findByHashIDOrFail($hash_id)
     {
         $id = self::getIdFromHashId($hash_id);
 
